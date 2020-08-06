@@ -1,0 +1,23 @@
+substitutions:
+  _GO_SOMA_VERSION: 1.0.0
+steps:
+  - id: "Rodando o push da imagem"
+  name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'build'
+  - '--build-arg'
+  - 'GO_SOMA_VERSION=${_GO_SOMA_VERSION}'
+  - '-t'
+  - 'gcr.io/$PROJECT_ID/go-soma:latest'
+  - '-t'
+  - 'gcr.io/$PROJECT_ID/go-soma:${_GO_SOMA_VERSION}'
+  - '.'
+
+- id: "Rodando teste unitario"
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['run','-t','--name','myteste','gcr.io/$PROJECT_ID/go-soma:latest','go','test']
+
+images:
+- 'gcr.io/$PROJECT_ID/go-soma:latest'
+- 'gcr.io/$PROJECT_ID/go-soma:${_GO_SOMA_VERSION}'
+tags: ['cloud-builders-go-soma']

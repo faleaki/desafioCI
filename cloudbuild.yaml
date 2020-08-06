@@ -15,6 +15,10 @@ steps:
   name: 'gcr.io/cloud-builders/docker'
   args: ['run','-t','--name','myteste','gcr.io/$PROJECT_ID/go-soma:latest','go','test']
 
+- id: "Rodando a soma"
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['run','-t','--name','myteste','gcr.io/$PROJECT_ID/go-soma:latest','main']
+
 images:
 - 'gcr.io/$PROJECT_ID/go-soma:latest'
 - 'gcr.io/$PROJECT_ID/go-soma:${_GO_SOMA_VERSION}'

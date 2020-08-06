@@ -1,7 +1,7 @@
 substitutions:
   _GO_SOMA_VERSION: 1.0.0
 steps:
-  - id: "Rodando o push da imagem"
+- id: "Rodando o push da imagem"
   name: 'gcr.io/cloud-builders/docker'
   args:
   - 'build'

@@ -6,5 +6,5 @@ func add(x int, y int) int {
 }
 
 func main() {
-  fmt.Println("O Resultado de 5 + 5 =", add(5,5))
+  fmt.Println("O resultado de 5 + 5 =", add(5,5))
 }
